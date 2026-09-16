@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Free Resume & Invoice Maker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;padding:15px;max-width:600px;margin:auto;background:#f5f5f5}
+.card{background:#fff;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 8px #0001}
+input,textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
+button{width:100%;padding:12px;background:#000;color:#fff;border:0;border-radius:8px;font-size:16px}
+h2{margin-top:0}
+</style>
+</head>
+<body>
+<h1>Free Tools - No Signup</h1>
+
+<div class="card">
+<h2>1. Resume Maker</h2>
+<input id="name" placeholder="Your Name">
+<input id="job" placeholder="Job Title - ex: Web Developer">
+<textarea id="skills" placeholder="Your Skills"></textarea>
+<button onclick="makeResume()">Download Resume PDF</button>
+</div>
+
+<div class="card">
+<h2>2. Invoice Maker (For Freelancers - $)</h2>
+<input id="cname" placeholder="Client Name">
+<input id="amount" placeholder="Amount - ex: $50">
+<textarea id="work" placeholder="Work Details"></textarea>
+<button onclick="makeInvoice()">Download Invoice PDF</button>
+</div>
+
+<div class="card" style="text-align:center">
+<p>Recommended: Create Pro Resume on Canva Pro (Free Trial)</p>
+<a href="YOUR_AFFILIATE_LINK_HERE"><button style="background:#00c4cc">Try Canva Pro Free</button></a>
+</div>
+
+<script>
+function makeResume(){
+let w=window.open('','','width=800,height=600');
+w.document.write(`<h1>${document.getElementById('name').value}</h1><h3>${document.getElementById('job').value}</h3><p>${document.getElementById('skills').value}</p><p><i>Made with Free Resume Maker</i></p>`);
+w.document.close(); w.print();
+}
+function makeInvoice(){
+let w=window.open('','','width=800,height=600');
+w.document.write(`<h1>INVOICE</h1><p>Bill To: ${document.getElementById('cname').value}</p><p>Work: ${document.getElementById('work').value}</p><h2>Total: ${document.getElementById('amount').value}</h2><hr><p>Pay via PayPal / UPI</p>`);
+w.document.close(); w.print();
+}
+</script>
+</body>
+</html>
