@@ -1,50 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Free Resume & Invoice Maker</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{font-family:Arial;padding:15px;max-width:600px;margin:auto;background:#f5f5f5}
-.card{background:#fff;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 8px #0001}
-input,textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
-button{width:100%;padding:12px;background:#000;color:#fff;border:0;border-radius:8px;font-size:16px}
-h2{margin-top:0}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HostOrbitLab - Free Online Tools for Everyone</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',sans-serif}</style>
 </head>
-<body>
-<h1>Free Tools - No Signup</h1>
+<body class="bg-[#f8f9ff]">
+<!-- Header -->
+<header class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2 font-bold text-xl"><span class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-lg">H</span> HostOrbitLab</div>
+    <div class="hidden md:flex gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">✓ 100% Free</span><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">No Signup Needed</span></div>
+  </div>
+</header>
 
-<div class="card">
-<h2>1. Resume Maker</h2>
-<input id="name" placeholder="Your Name">
-<input id="job" placeholder="Job Title - ex: Web Developer">
-<textarea id="skills" placeholder="Your Skills"></textarea>
-<button onclick="makeResume()">Download Resume PDF</button>
+<!-- Hero -->
+<section class="text-center py-12 px-5">
+  <h1 class="text-4xl md:text-5xl font-bold mb-3">Everything you need, <span class="text-blue-600">One Place.</span></h1>
+  <p class="text-gray-500 max-w-2xl mx-auto mb-6">32+ powerful tools trusted by people in USA. Image, PDF, Calculator & Text tools - fast, secure & free.</p>
+  <div class="max-w-xl mx-auto relative">
+    <input id="search" onkeyup="searchTools()" placeholder="Search tools - e.g. compress image, pdf, qr..." class="w-full border rounded-full py-3 px-5 pl-12 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <span class="absolute left-5 top-3.5">🔍</span>
+  </div>
+</section>
+
+<!-- Tools Grid -->
+<div class="max-w-7xl mx-auto px-5 pb-20">
+  <div id="toolGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+    <!-- IMAGE TOOLS -->
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="image compressor"><div class="text-3xl mb-2">🗜️</div><h3 class="font-bold">Image Compressor</h3><p class="text-xs text-gray-500">Compress JPG, PNG 80% smaller</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="background remover"><div class="text-3xl mb-2">✂️</div><h3 class="font-bold">BG Remover</h3><p class="text-xs text-gray-500">Remove background in 1 click</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="image resizer"><div class="text-3xl mb-2">📐</div><h3 class="font-bold">Image Resizer</h3><p class="text-xs text-gray-500">Resize for Instagram, YouTube</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="jpg to png"><div class="text-3xl mb-2">🖼️</div><h3 class="font-bold">JPG to PNG</h3><p class="text-xs text-gray-500">Convert images instantly</p></div>
+
+    <!-- PDF TOOLS -->
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="merge pdf"><div class="text-3xl mb-2">📄</div><h3 class="font-bold">Merge PDF</h3><p class="text-xs text-gray-500">Combine PDFs into one</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="pdf to word"><div class="text-3xl mb-2">📝</div><h3 class="font-bold">PDF to Word</h3><p class="text-xs text-gray-500">Most searched in USA</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="compress pdf"><div class="text-3xl mb-2">📉</div><h3 class="font-bold">Compress PDF</h3><p class="text-xs text-gray-500">Reduce PDF size</p></div>
+
+    <!-- TEXT & WRITING -->
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="word counter"><div class="text-3xl mb-2">🔢</div><h3 class="font-bold">Word Counter</h3><p class="text-xs text-gray-500">Count words & characters</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="plagiarism checker"><div class="text-3xl mb-2">✅</div><h3 class="font-bold">Plagiarism Checker</h3><p class="text-xs text-gray-500">Check duplicate content</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="qr code generator"><div class="text-3xl mb-2">⚡</div><h3 class="font-bold">QR Generator</h3><p class="text-xs text-gray-500">Create QR for link, wifi</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="password generator"><div class="text-3xl mb-2">🔐</div><h3 class="font-bold">Password Generator</h3><p class="text-xs text-gray-500">Strong random password</p></div>
+
+    <!-- CALCULATORS - USA HIGH SEARCH -->
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="age calculator"><div class="text-3xl mb-2">🎂</div><h3 class="font-bold">Age Calculator</h3><p class="text-xs text-gray-500">#1 searched in USA</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="bmi calculator"><div class="text-3xl mb-2">⚖️</div><h3 class="font-bold">BMI Calculator</h3><p class="text-xs text-gray-500">Body Mass Index</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="loan calculator"><div class="text-3xl mb-2">💰</div><h3 class="font-bold">Loan Calculator</h3><p class="text-xs text-gray-500">EMI & Mortgage USA</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="percentage calculator"><div class="text-3xl mb-2">%</div><h3 class="font-bold">Percentage Calc</h3><p class="text-xs text-gray-500">Tip, discount, %</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="unit converter"><div class="text-3xl mb-2">🔄</div><h3 class="font-bold">Unit Converter</h3><p class="text-xs text-gray-500">Length, weight, temp</p></div>
+
+    <!-- MORE VIRAL -->
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="color picker"><div class="text-3xl mb-2">🎨</div><h3 class="font-bold">Color Picker</h3><p class="text-xs text-gray-500">Pick HEX, RGB</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="youtube thumbnail downloader"><div class="text-3xl mb-2">▶️</div><h3 class="font-bold">YT Thumbnail Downloader</h3><p class="text-xs text-gray-500">Get HD thumbnail</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="insta font generator"><div class="text-3xl mb-2">✒️</div><h3 class="font-bold">Fancy Text Generator</h3><p class="text-xs text-gray-500">For Instagram Bio</p></div>
+    <div class="tool bg-white p-5 rounded-2xl border hover:shadow-lg transition" data-name="case converter"><div class="text-3xl mb-2">🔠</div><h3 class="font-bold">Case Converter</h3><p class="text-xs text-gray-500">UPPER to lower</p></div>
+
+  </div>
 </div>
 
-<div class="card">
-<h2>2. Invoice Maker (For Freelancers - $)</h2>
-<input id="cname" placeholder="Client Name">
-<input id="amount" placeholder="Amount - ex: $50">
-<textarea id="work" placeholder="Work Details"></textarea>
-<button onclick="makeInvoice()">Download Invoice PDF</button>
-</div>
-
-<div class="card" style="text-align:center">
-<p>Recommended: Create Pro Resume on Canva Pro (Free Trial)</p>
-<a href="YOUR_AFFILIATE_LINK_HERE"><button style="background:#00c4cc">Try Canva Pro Free</button></a>
-</div>
+<footer class="bg-white border-t py-6 text-center text-sm text-gray-500">© 2026 HostOrbitLab - Made for USA & Global Users - All Tools Free</footer>
 
 <script>
-function makeResume(){
-let w=window.open('','','width=800,height=600');
-w.document.write(`<h1>${document.getElementById('name').value}</h1><h3>${document.getElementById('job').value}</h3><p>${document.getElementById('skills').value}</p><p><i>Made with Free Resume Maker</i></p>`);
-w.document.close(); w.print();
-}
-function makeInvoice(){
-let w=window.open('','','width=800,height=600');
-w.document.write(`<h1>INVOICE</h1><p>Bill To: ${document.getElementById('cname').value}</p><p>Work: ${document.getElementById('work').value}</p><h2>Total: ${document.getElementById('amount').value}</h2><hr><p>Pay via PayPal / UPI</p>`);
-w.document.close(); w.print();
+function searchTools(){
+  let q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.tool').forEach(t=>{
+    t.style.display = t.dataset.name.includes(q) ? 'block' : 'none';
+  });
 }
 </script>
 </body>
